@@ -6,7 +6,7 @@ model=load_model('Digit Classifier.keras')
 st.title('Handwritten Digit Classifier')
 st.info("**Note :** This model is trained on black and white image data so can make a mistake.")
 image=st.file_uploader("Upload Image",type=['png','jpg','jpeg'])
-st.divider('---')
+st.divider()
 import streamlit as st
 cols=st.columns(2)
 with cols[0]:
