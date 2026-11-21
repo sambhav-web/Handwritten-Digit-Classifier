@@ -4,10 +4,15 @@ import streamlit as st
 from tensorflow.keras.models import load_model
 model=load_model('Digit Classifier.keras')
 st.title('Handwritten Digit Classifier')
-st.info("**Note** This model is trained on black and white image data so can make a mistake.")
+st.info("**Note :** This model is trained on black and white image data so can make a mistake.")
 image=st.file_uploader("Upload Image",type=['png','jpg','jpeg'])
-background=st.selectbox("Background Color :",["Black","White"])
-type=st.selectbox("Image Type",["RGB","GrayScale"])
+st.divider('---')
+import streamlit as st
+cols=st.columns(2)
+with cols[0]:
+  background=st.selectbox("Background Color :",["Black","White"])
+with cols[1]:
+  type=st.selectbox("Image Type",["RGB","GrayScale"])
 def identify(file,background_color,image_type):
   img=Image.open(file)
   if image_type=="RGB":
